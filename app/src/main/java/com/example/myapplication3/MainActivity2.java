@@ -37,6 +37,7 @@ public class MainActivity2 extends AppCompatActivity {
         idEmp = findViewById(R.id.sName);
         send = findViewById(R.id.btn);
         result = findViewById(R.id.result);
+        loadingPB = findViewById(R.id.loadingPB);
 
         send.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,12 +53,14 @@ public class MainActivity2 extends AppCompatActivity {
 
     private void postDat(String fName, String IdEmp) {
         String url = "https://reqres.in/api/users";
+        loadingPB.setVisibility(View.VISIBLE);
         RequestQueue queue = Volley.newRequestQueue(MainActivity2.this);
 
         StringRequest request = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        loadingPB.setVisibility(View.GONE);
                         toast("Data added to the API");
                         try {
                             JSONObject jsonObjectRes = new JSONObject(response);
