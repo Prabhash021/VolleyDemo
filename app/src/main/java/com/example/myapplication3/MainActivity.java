@@ -15,6 +15,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -44,22 +46,20 @@ public class MainActivity extends AppCompatActivity {
                         Log.e("url", response);
                         try {
                             JSONArray jsonArray = new JSONArray(response);
+                            Gson gson = new GsonBuilder().create();
                             for(int i=0; i<jsonArray.length(); i++){
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
-
-                                dataModel singleData = new dataModel(
+                                /*dataModel singleData = new dataModel(
                                         jsonObject.getString("albumId"),
                                         jsonObject.getString("id"),
                                         jsonObject.getString("url"),
                                         jsonObject.getString("title"),
                                         jsonObject.getString("thumbnailUrl")
-                                );
-//                                Log.e("tag5", singleData.title);
+                                );*/
+                                dataModel singleData = gson.fromJson(String.valueOf(jsonObject), dataModel.class);
                                 arrData.add(singleData);
-//                                Log.i("tag3","Data in arrData"+arrData.size());
                             }
                             recyclerView.setAdapter(new RecyclerDataAdapter(MainActivity.this, arrData));
-//                            Log.e("tag2","Data in recycler"+recyclerView.toString().length());
                         } catch (JSONException e) {
                             throw new RuntimeException(e);
                         }

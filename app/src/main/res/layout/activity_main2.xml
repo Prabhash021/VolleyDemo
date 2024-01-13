@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10sp"
             android:layout_marginTop="12sp"
-            android:hint="First Name"
+            android:hint="Name"
             android:id="@+id/fName"/>
 
         <EditText
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10sp"
             android:layout_marginTop="12sp"
-            android:hint="Second Name"
+            android:hint="ID"
             android:id="@+id/sName"/>
 
     </LinearLayout>
@@ -47,5 +47,12 @@
         android:layout_marginTop="35dp"
         android:layout_marginLeft="40sp"
         android:layout_marginRight="40sp"
+        android:gravity="center"
         android:id="@+id/result"/>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"/>
 </LinearLayout>
