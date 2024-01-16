@@ -43,7 +43,7 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(fname.getText().toString().isEmpty() && idEmp.getText().toString().isEmpty()){
-                    toast("Please prove the details");
+                    toast("Please provide the details");
                 }
                 postDat(fname.getText().toString(), idEmp.getText().toString());
             }

@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
                                         jsonObject.getString("title"),
                                         jsonObject.getString("thumbnailUrl")
                                 );*/
+                                Log.e("TAG1",jsonObject.toString());
                                 dataModel singleData = gson.fromJson(String.valueOf(jsonObject), dataModel.class);
                                 arrData.add(singleData);
                             }
